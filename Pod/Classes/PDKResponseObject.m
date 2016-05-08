@@ -29,6 +29,12 @@
 {
     self = [super init];
     if (self) {
+        
+        NSDictionary *allHeaders = [response allHeaderFields];
+        
+        _methodRateLimit = [allHeaders[@"X-Ratelimit-Limit"] intValue];
+        _methodRateRemaining = [allHeaders[@"X-Ratelimit-Remaining"] intValue];
+
         _statusCode = response.statusCode;
         _parsedJSONDictionary = [dictionary _PDK_dictionaryByRemovingNulls];
         _cursor = _parsedJSONDictionary[@"page"][@"cursor"];
