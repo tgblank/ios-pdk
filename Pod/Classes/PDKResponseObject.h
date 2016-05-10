@@ -33,8 +33,8 @@ typedef void (^PDKResponseObjectLoadedFailure)(NSError *error);
 /**
  *  Rate limit information based on the call that was made.
  */
-@property (nonatomic, assign) NSUInteger methodRateLimit;
-@property (nonatomic, assign) NSUInteger methodRateRemaining;
+@property (nonatomic, assign) NSInteger rateLimit;
+@property (nonatomic, assign) NSInteger rateRemaining;
 
 /**
  *  For internal use only;

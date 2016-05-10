@@ -32,8 +32,8 @@
         
         NSDictionary *allHeaders = [response allHeaderFields];
         
-        _methodRateLimit = [allHeaders[@"X-Ratelimit-Limit"] intValue];
-        _methodRateRemaining = [allHeaders[@"X-Ratelimit-Remaining"] intValue];
+        _rateLimit = [allHeaders[@"X-Ratelimit-Limit"] integerValue];
+        _rateRemaining = [allHeaders[@"X-Ratelimit-Remaining"] integerValue];
 
         _statusCode = response.statusCode;
         _parsedJSONDictionary = [dictionary _PDK_dictionaryByRemovingNulls];
